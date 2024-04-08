@@ -1,0 +1,157 @@
+.card-body {
+  color: #a7a7b8 !important;
+  font-weight: 500 !important;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.btn-with-border {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c6c8d8;
+}
+
+.top-card {
+  width: 95mm;
+  margin-left: 10px;
+  padding-top: 10px !important;
+}
+
+.body-card {
+  width: 195mm;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.body-card-div-4 {
+  float: left;
+  width: 177px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.body-card-div-2 {
+  float: left;
+  width: 364px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.body-col-inner-1 {
+  padding-right: 0px;
+}
+.body-col-inner-2 {
+  padding-left: 0px;
+}
+
+.body-row-inner {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.row {
+  padding-top: 30px;
+  padding-bottom: 30px; 
+  width: 22cm;
+}
+
+.black {
+  color: black !important;
+}
+
+.normal-text {
+  font-size: x-small;
+  padding-top: 15px !important;
+  padding-bottom: 0 !important;
+}
+
+.normal-text .col {
+  padding-right: 0px !important;
+  padding-left: 15px;
+}
+
+.custom-bg-dark {
+  background-color: #6b7588 !important;
+}
+.custom-bg-light {
+  background-color: #c6c8d8 !important;
+}
+.custom-item-title {
+  background-color: #f4f4f4 !important;
+  font-weight: bold;
+  width: 100%;
+  text-align: start;
+}
+
+h5, h4, h3, h2, h1 {
+  color: black !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+h5 {
+  font-size: medium;
+  font-weight: 600 !important;
+}
+
+.bdR-1 {
+  border: 0px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #c6c8d8;
+}
+.bdL-1 {
+  border: 0px;
+  border-left: 1px;
+  border-style: solid;
+  border-color: #c6c8d8;
+}
+
+.pL-15 {
+  padding-left: 15px !important;
+}
+
+.mL-15 {
+  margin-left: 15px !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.pR-0 {
+  padding-right: 0 !important;
+}
+.pL-0 {
+  padding-left: 0 !important;
+}
+.pT-0 {
+  padding-top: 0 !important;
+}
+.pB-0 {
+  padding-bottom: 0 !important;
+}
+
+.top-col-1 {
+  padding-left: 40px;
+  padding-right: 0px
+}
+.top-col-2 {
+  padding-left: 0;
+  padding-right: 40px
+}
+.body-col {
+  padding-left: 40px;
+  padding-right: 40px
+}
+
+p {
+  margin-bottom: 5px !important;
+}
+
+@media print {
+  body{
+      width: 21cm;
+      height: 29.7cm;
+ } 
+}
