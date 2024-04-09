@@ -1,19 +1,45 @@
-import React, { useRef } from 'react';
 import './App.css';
 import { Badge, Button, Card, Col, Form, Row } from 'react-bootstrap';
-import { useReactToPrint } from 'react-to-print';
 import { BsClipboard2 } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { PiHouseSimple } from "react-icons/pi";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+import { IoLogoAppleAr } from "react-icons/io5";
+import { IoLogoTux } from "react-icons/io";
+
+
+ChartJS.register(ArcElement, Tooltip);
 
 function App() {
-  const componentRef = useRef(null);
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
-
+  const data = {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
   return (
-    <div className="App" ref={componentRef}>
+    <div className="App">
       <Row className='custom-bg-dark'>
         <Col className='d-flex top-col-1'>
           <Card className='top-card'>
@@ -141,7 +167,7 @@ function App() {
               </Row>
             </Card.Body>
           </Card>
-          <Card className='body-card-div-4'>
+          <Card className='body-card-div-4 mL-28'>
             <Card.Body className='text-center'>
               <PiHouseSimple /> Parâmetro 1
               <h4>000</h4>
@@ -165,7 +191,7 @@ function App() {
               <h4>000</h4>
             </Card.Body>
           </Card>
-          <Card className='body-card-div-2'>
+          <Card className='body-card-div-2 mL-28'>
             <Card.Body className='text-center'>
               Gráfico 1
             </Card.Body>
@@ -175,7 +201,7 @@ function App() {
               Gráfico 2
             </Card.Body>
           </Card>
-          <Card className='body-card'>
+          <Card className='body-card graph-card'>
             <Card.Body>
               <Row className='d-flex align-items-center w-auto body-row-inner normal-text'>
                 <Col md={4} className=''>  
@@ -185,7 +211,7 @@ function App() {
                   </span>
                 </Col>
                 <Col md={2} className=''>
-                  Grafico 1
+                  <Doughnut data={data} />;
                 </Col>
                 <Col md={4} className=''>
                   <span className='black'>
@@ -194,7 +220,7 @@ function App() {
                   </span>
                 </Col>
                 <Col md={2} className=''>
-                  Grafico 2
+                  <Doughnut data={data} />;
                 </Col>
               </Row>
             </Card.Body>
@@ -202,45 +228,38 @@ function App() {
         </Col>
       </Row>
       <Row className='custom-bg-dark'>
-        <Col className='d-flex top-col-1'>
-          <Card className='top-card'>
-            <Card.Body>
-              <Button className='float-end btn-with-border' variant="light">00/00/0000</Button>
-              <br></br>
-              <small>Aqui está a </small>
-              <h2>
-                RECOMENDAÇÃO,
-              </h2>
-              <small>personalizada para as suas necessidades!</small>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col className='d-flex top-col-2'>
+        <Col className='d-flex foot-col-1' md={6}>
           <Card className='top-card'>
             <Card.Body>
               <Button className='custom-item-title' variant='light'>
                 <BsClipboard2 size={"1.2em"}/>&nbsp;
-                Dados do Agricultor
+                Dados do Vendedor
               </Button>
               <Row className='w-auto normal-text'>
                 <Col>
                   <p><span className='black'>Nome:</span> João José da Silva</p>
-                  <p><span className='black'>CPF:</span> 000.000.000-00</p>
                   <p><span className='black'>Telefone:</span> (00) 00000-0000</p>
                   <p><span className='black'>E-mail:</span>  joaosilva@gmail.com</p>
-                </Col>
-                <Col>
-                  <p><span className='black'>Endereço:</span> Rua Feliz, nº 0</p>
-                  <p><span className='black'>Cidade:</span> Serra Dourada</p>
-                  <p><span className='black'>UF:</span> Minas Gerais</p>
                 </Col>
               </Row>
             </Card.Body>
           </Card>
         </Col>
+        <Col className='d-flex foot-col-2' md={3}>
+          <Card className='foot-card'>
+            <Card.Body>
+              <IoLogoAppleAr size={"6em"} />
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col className='d-flex foot-col-3' md={3}>
+          <Card className='foot-card'>
+            <Card.Body>
+              <IoLogoTux size={"6em"} />
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
-      
-      <button onClick={handlePrint}>Print this out!</button>
     </div>
   );
 }

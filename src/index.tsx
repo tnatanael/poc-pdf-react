@@ -3,15 +3,34 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import MyDocument from './MyDocument';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const printDocument = () => {
+  const input = document.getElementById('divToPrint') || new HTMLElement();
+  html2canvas(input)
+    .then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, 'JPEG', 0, 0, 0, 0);
+      // pdf.output('dataurlnewwindow');
+      pdf.save("download.pdf");
+    })
+  ;
+}
+
 root.render(
   <React.StrictMode>
-    <App />
+      <div id="divToPrint" className="mt4">
+        <App />
+      </div>
+      <div className="mb5" style={{ marginTop: "30px" }}>
+        <button onClick={printDocument}>Gerar PDF</button>
+      </div>
   </React.StrictMode>
 );
 
